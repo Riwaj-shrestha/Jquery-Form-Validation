@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+              <img src="./iw-logo.svg" class="navbar-brand">
+          </div>
+
+          <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li ><a href="#">Blog</a></li>
+            <li class="active"><a href="#">Acedemy</a></li>
+            <li><a href="#">Career</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      </nav> 
+  <div class="row row-1">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 card">
+      
+      <h2 style="font-weight: 600">Application Form</h2>
+      <form action="#" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="formName" placeholder="Your full name" name="fullname">
+                <div id="nameErr" class="err">
+                  
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">How can we contact you?</label><br>
+                <div class="row">
+                  <div class="col-md-6 col-xs-6"> 
+                    <input type="email" class="form-control form-half" id="formEmail" placeholder="Email" name="email"> 
+                    <div id="emailErr" class="err">
+                      
+                    </div>
+
+                  </div>
+                  <div class="col-md-6 col-xs-6"> 
+                    <input type="text" class="form-control form-half" id="formPhone" placeholder="Phone" name="phone">
+                    <div id="phoneErr" class="err">
+                      
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+        <!-- <div class="form-group">
+          <input type="text" class="form-control" id="phone" placeholder="Phone" name="phone">
+        </div> -->
+
+        <div class="form-group">
+                <label for="resume">CV or Resume</label>
+
+                <label for="frmCV" class="font-size-lg"><small class="text-muted">(Optional)</small></label>
+
+                <input type="file" class="form-control custom-file-input" id="email" placeholder="Select file" name="myFile">
+                
+
+                <small class="text-muted">We accept pdf file only.</small>
+                
+            </div>
+
+        <div class="form-group form-check">
+          <label class="form-check-label">Which batch are you interested?<br>
+            <input class="form-check-input" type="checkbox" name="remember"> October 2019<br>
+            <input class="form-check-input" type="checkbox" name="remember"> January 2020
+          </label>
+
+        </div>
+
+        <div class="form-group">
+                <label for="motivation">Motivation</label>            
+                <textarea class="form-control" id="motivate" placeholder="Share us your motivation to take part in this program."rows="3"></textarea>
+            </div>
+            <center>
+          <button type="submit" class="btn btn-outline-primary" id="apply-btn">Apply</button> </center>
+
+      </form>
+      <br>
+
+    </div>
+    <div class="col-md-3"></div>
+
+
+
+  </div>
+  <br>
+</div>
+</body>
+<script>
+    $(document).ready(function(){
+        var reEmail = /\S+@\S+\.\S+/;
+
+        var rePassword=/^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$/;
+        $("#nameErr").hide();
+        $("#passwordErr").hide();
+        $("#phoneErr").hide();
+        $("#emailErr").hide();
+
+        $("#formName").on("focusout",function(){
+            var name= $("#formName").val();
+            if(name.length<6){
+                $("#nameErr").html("Name must have atleast 6 character");
+                $("#nameErr").show();
+            }
+            else{
+                $("#nameErr").hide();
+            }
+        });
+
+        $("#formEmail").on("focusout",function(){
+            var email= $("#formEmail").val();
+            // console.log(re.test(email))
+            if(!reEmail.test(email)){
+                $("#emailErr").html("Invalid Email");
+                $("#emailErr").show();
+            }
+            else{
+                $("#emailErr").hide();
+            }
+        });
+
+           $("#formPhone").on("focusout",function(){
+            var phone= $("#formPhone").val();
+            if(phone.length<10){
+                $("#phoneErr").html("Phone no. must have 10 number");
+                $("#phoneErr").show();
+            }
+            else{
+                $("#phoneErr").hide();
+            }
+        });
+
+        $("#formPassword").on("focusout",function(){
+            var password= $("#formPassword").val();
+            // console.log(re.test(email))
+            if(!rePassword.test(password)){
+                $("#passwordErr").html("Insert Valid Password");
+                $("#passwordErr").show();
+            }
+            else{
+                $("#passwordErr").hide();
+            }
+        })
+
+        $('#apply-btn').on("click",function(event){
+          
+            event.preventDefault();
+            var name= $("#formName").val();
+            if(name.length<6){
+                $("#nameErr").html("Name must have atleast 6 character");
+                $("#nameErr").show();
+            }
+            else{
+                $("#nameErr").hide();
+            }
+
+            var email= $("#formEmail").val();
+            // console.log(re.test(email))
+            if(!reEmail.test(email)){
+                $("#emailErr").html("Invalid Email");
+                $("#emailErr").show();
+            }
+            else{
+                $("#emailErr").hide();
+            }
+            var phone= $("#formPhone").val();
+            if(phone.length<10){
+                $("#phoneErr").html("Phone no. must have 10 number");
+                $("#phoneErr").show();
+            }
+            else{
+                $("#phoneErr").hide();
+            }
+
+        })
+    })
+</script>
+</html>
+
+
+</html>

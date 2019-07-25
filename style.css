@@ -1,0 +1,105 @@
+body{
+    margin: 0;
+    background-color: #f3f8ff;
+    font-family: 'Source Serif Pro', serif;
+    font-size: 16px;
+}
+
+.row-1{
+    margin-top: 15vh;
+}
+
+.card{
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 2px 2px 15px rgba(153, 153, 153, 0.3);
+}
+
+/* Bootstrap */
+.navbar-nav>li>a {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-weight: 600;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #4080ff;
+    background-color: transparent;
+}
+.navbar-default .navbar-nav>.active>a{
+    color: #4080ff;
+    background-color: transparent;
+}
+.navbar-default .navbar-nav>.active>a:hover{
+    color: #4080ff;
+    background-color: transparent;
+}
+.navbar-brand {
+    height: 65px;
+}
+
+.form-half{
+    display: inline-block;
+    width: 100%;
+}
+
+.btn:hover {
+    background-color: #4080ff;
+    color: #fff;
+    text-decoration: none;}
+
+    .btn {
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: 600;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        background-color: transparent;
+        border: 1px solid #4080ff;
+        color: #4080ff;
+        padding: 10px 28px;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.42857143;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .custom-file-input::-webkit-file-upload-button {
+        visibility: hidden;
+      }
+    .custom-file-input::before {
+        content: 'Browse';
+        display: inline-block;
+        background: linear-gradient(top, #f9f9f9, #e3e3e3);
+        border-left: 1px solid #999;
+        margin-top: 0px;
+        padding: 0px 8px;
+        outline: none;
+        float: right;
+        white-space: nowrap;
+        -webkit-user-select: none;
+        cursor: pointer;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .row-1{
+            padding-top: 7vh;
+            margin-top: 0;
+        }
+        .card{
+            padding-top: 4vh;
+        }
+    }
+
+
+    .err{
+        color: red;
+    }
