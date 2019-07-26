@@ -117,6 +117,8 @@
         var reEmail = /\S+@\S+\.\S+/;
 
         var rePassword=/^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$/;
+
+        var rePhone = /^[9]{1}[8]{1}[0-9]{8}/;
         $("#nameErr").hide();
         $("#passwordErr").hide();
         $("#phoneErr").hide();
@@ -147,8 +149,8 @@
 
            $("#formPhone").on("focusout",function(){
             var phone= $("#formPhone").val();
-            if(phone.length<10){
-                $("#phoneErr").html("Phone no. must have 10 number");
+            if(!rePhone.test(phone)){
+                $("#phoneErr").html("Phone number invalid");
                 $("#phoneErr").show();
             }
             else{
